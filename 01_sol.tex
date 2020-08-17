@@ -1,0 +1,398 @@
+\documentclass[11pt]{article}
+
+% File configuration packages
+\usepackage[a4paper, total={190mm, 270mm}]{geometry}
+\usepackage{fancyhdr}
+\usepackage{setspace}
+\usepackage[spanish]{babel}
+\usepackage{booktabs} % Quality tables
+\usepackage{apacite}
+\usepackage{array}
+\usepackage{float} % Arrange for floating objects
+\usepackage{enumerate}
+\usepackage[
+  colorlinks=true,
+  linkcolor=black,
+  anchorcolor=black,
+  citecolor=black,
+  filecolor=black,
+  menucolor=black,
+  runcolor=black,
+  urlcolor=black
+]{hyperref}
+
+
+% Math related packages
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{mathabx}
+\usepackage{mathstyle}
+\usepackage{mathtools}
+\newcommand*\rfrac[2]{{}^{#1}\!/_{#2}} % Split frac: #1/#2
+\newtheorem{teorema}{Teorema}
+\newtheorem{lemma}{Lemma}
+\newtheorem{corolario}{Corolario}
+\newtheorem{contra}{Contraejemplo}
+\renewcommand\qedsymbol{$\blacksquare$}
+
+% Graphs and Images related packages
+\usepackage{graphicx}
+\graphicspath{ {./} }
+\usepackage{pgfplots}
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+
+\title{ Tópicos de Análisis Real: Ejercitación 1 }
+
+\date{ Segundo semestre 2020 }
+
+
+\begin{document}
+\maketitle
+\begin{enumerate}
+  \item Decidir si los siguientes conjuntos son o no subespacios.
+    \begin{enumerate}
+      \item $S_{1}=\left\{x \in \mathbb{R}^{2} / \ x_{1}+x_{2}=5\right\}$\\
+        No es subespacio porque $(0,0) \notin S_1$ porque $0+0\neq 5$
+      \item $S_{2}=\left\{x \in \mathbb{R}^{3} / \ 3 x_{1}-x_{3}=0\right.$ y 
+        $\left.x_{3}+x_{2}=0\right\}$\\
+        Veamos, un elemento $x$ de $S_2$ tiene la siguiente forma 
+        $x = v \left( \frac{1}{3} ,-1,1 \right) \forall v \in \mathbb{R}$, 
+        tenemos entonces la forma paremétrica de una recta con dirección 
+        $(\frac{1}{3},-1,1)$ entonces $S_2$ es una recta en $\mathbb{R}^3$ 
+        que pasa por el origen, por ende es un subespacio de $\mathbb{R}^3$
+      \item $S_{3}=\left\{x \in \mathbb{R}^{3} / \ x=\alpha(1,2,3),\right.$ con 
+        $\left.\alpha \in \mathbb{R}\right\}$\\
+        Sabemos que $S_3$ es una recta en $\mathbb{R}^3$ que pasa por el origen,
+        por ende sera un subespacio de $\mathbb{R}^3$
+      \item $S_{4}=\left\{x \in \mathbb{R}^{3} / \ x_{1}=x_{2} x_{3}\right\}$\\
+        Sea $v = (v_2 v_3, v_2, v_3) \in S_4$ y $\alpha \in \mathbb{R}$,
+        \[ \alpha v =  (\alpha v_2 v_3,\alpha v_2, \alpha v_3) \]
+        Como la primera coordena no respeta $x_1 = x_2 x_3 $ $\alpha v \notin S_4$
+        entonces $S_4$ no es un subespacio de $\mathbb{R}^3$.
+      \item $S_{5}=\left\{x \in \mathbb{R}^{4} / \ \langle x, a\rangle =0 \right\}$,
+        donde $a \in \mathbb{R}^{4}$\\
+        Sea $v, w \in S_5$ \\
+        \begin{itemize}
+          \item $ \langle 0, \alpha \rangle = 0 \implies 0 \in S_5$
+          \item $ \langle v + w, \alpha \rangle = \langle v, \alpha \rangle 
+            + \langle w, \alpha \rangle = 0 + 0 = 0 \implies v + w \in S_5 $
+          \item Sea $r$ in $\mathbb{R}$.\\
+           $ \langle rv , \alpha \rangle = r \langle v, \alpha \rangle = r 0 = 0 
+           \implies rv \in S_5$  
+        \end{itemize}
+        Como se cumplen estas tres propiedades podemos afirmar que $S_5$ es un 
+        subespacio de $\mathbb{R}^4$
+    \end{enumerate}
+  \item Sea $W=\left[ (1,-1, 1), (0,0,1) \right]$\\
+    $(2,2,1) \notin W \because \ \nexists \ \alpha, \beta / 
+    \ (2,2,1) = \alpha (1, -1, 1) + \beta (0, 0, 1)$ \\
+    $(5,-5,2) = 5 (1, -1, 1) + (-3) (0, 0, 1) \implies (5, -5, 2) \in W$\\
+
+    Sea $S=\left\{ x \in \mathbb{R}^4 / x_1 + x_2\right\}$. Un conjunto de vectores 
+    puede generar a $S$  si pertenecen a $S$ y son linealmente independientes.
+    \begin{itemize}
+      \item $(1,-1,1);(2,-2,2)$ \\
+        No generan $S$ porque $2 (1,-1,1) = (2, -2,2)$, es decir, no son linealmente
+        independientes.
+      \item $(1,1,0) ;(1,-1,0)$ \\
+        No generan $S$ porque $(1,1,0)\notin S$
+      \item $(1,-1,0);(1,-1,1)$ \\
+        Si generan a $S$ porque son linealmente independientes y ambos vectores
+        están en $S$.
+    \end{itemize}
+  \item \begin{enumerate}
+          \item Dados $S=\left\{x \in \mathbb{R}^{3}: 3 x_{1}+2 x_{2}+x_{3}=0\right\}$
+            $T=[(1,1,2) ;(0,1,-1)]$ $W=[(3,1,0) ;(2,2,-1)]$
+            \begin{itemize}
+              \item $S\cap T = [(1,-6,9)]$
+                \begin{proof}
+                  \[ 3 x_1 + 2 x_2 + x_1 = 0 \tag{Condicion para pertenecer a $S$}\]
+                  \[ \lambda_1 (1,1,2) + \lambda_2 (0,1,-1) = (\lambda_1, \lambda_1
+                    + \lambda_2, 2 \lambda_1 - \lambda_2) 
+                  \tag{Condicion para pertenecer a $T$} \]
+                  Para $x \in S \cap T$ se deben cumplir ambas condiciones,
+                  si unimos las dos condiciones en una ecuación obtenemos,
+                  \[ 3 \lambda_1 + 2 (\lambda_1+\lambda_2) + 
+                  2\lambda_1 - \lambda_2 = 0\]
+                  Resolviendo la ecuación anterior tenemos, $-7\lambda_1 = \lambda_2$.
+                  Usando esto y la condición para pertenecer a $T$ obtenemos 
+                  \[ \lambda_1 (1, -6, 9) \]
+                \end{proof}  
+              \item $T \cap W = \left[\left(\frac{1}{8},\frac{11}{8},-1\right)\right] $
+                \begin{proof}
+                  \[ \lambda_1 (1,1,2) + \lambda_2 (0,1,-1) = (\lambda_1, \lambda_1
+                    + \lambda_2, 2 \lambda_1 - \lambda_2) 
+                  \tag{Condicion para pertenecer a $T$} \]
+                  \[ \lambda_3 (3,1,0) + \lambda_4 (2,2,-1) = (3\lambda_3 + 2\lambda_4
+                      , \lambda_3  + 2 \lambda_4, - \lambda_4) 
+                  \tag{Condicion para pertenecer a $W$} \]
+                  Para $x \in W \cap T$ se deben cumplir ambas condiciones,
+                  si unimos las dos condiciones obtenemos,
+                  \[ (\lambda_1, \lambda_1 + \lambda_2, 2 \lambda_1 - \lambda_2) =
+                  (\lambda_3 + 2\lambda_4, \lambda_3  + 2 \lambda_4, - \lambda_4) \] 
+                  Resolvemos el sistema de 3 ecuaciones y 4 incógnitas y obtenemos,
+                  \[ \begin{cases}
+                      \lambda_1 =& \frac{1}{8} \lambda_4 \\
+                      \lambda_2 =& \frac{5}{4} \lambda_4 \\
+                      \lambda_3 =& \frac{-5}{8} \lambda_4 \\
+                      \lambda_4 & variable \ libre 
+                  \end{cases} \]
+                  Usando el resultado anterior y cualquiera de las dos condiciones 
+                  de pertenencia obtenemos,
+                  \[ \lambda_4 \left(\frac{1}{8}, \frac{11}{8}, -1 \right) \]
+                \end{proof}
+              \item $S \cap[(3,2,1)] = \left\{ 0 \right\}$
+                \begin{proof}
+                  \[ 3 x_1 + 2 x_2 + x_1 = 0 \tag{Condicion para pertenecer a $S$}\]
+                  \[ \lambda_1 (3,2,1) = (3\lambda_1, 2\lambda_1, \lambda_1) 
+                  \tag{Condicion para pertenecer a $[(3,2,1)]$} \]
+                  Para $x \in S \cap [(3,2,1)]$ se deben cumplir ambas condiciones,
+                  si unimos las dos condiciones en una ecuación obtenemos,
+                  \[ 9 \lambda_1 + 4 \lambda_1 + \lambda_1 = 0\]
+                  Resolviendo la ecuación anterior tenemos, $\lambda_1 = 0$.
+                  Esto nos quiere decir que el único vector en $ S \cap [(3,2,1)]$ 
+                  es el $(0,0,0)$.\\
+                \end{proof}  
+                Una explicación intuitiva de porque la intersección es solo el vector
+                nulo, es porque la intersección entre una recta y un plano en 
+                $\mathbb{R}$ puede ser 
+                \begin{itemize}
+                  \item La recta, si esta esta incluida en el plano
+                  \item El elemento nulo, en otro caso
+                \end{itemize}
+                y como en este caso el vector que genera la recta no esta en el plano, 
+                la recta tampoco esta, por ende la intersección sera el elemento nulo.
+            \end{itemize}    
+          \item Sea $\alpha \in \mathbb{R}^n$, $V$ y $H$ subespacios de 
+            $\mathbb{R}^n$ talque
+            $V = [\alpha]$\\
+            $H=\left\{x \in \mathbb{R}^{n} / \langle \alpha, x \rangle=0\right\}$ \\
+            \begin{proof} Quiero ver que $V \cap H = \{ 0 \}$ \\
+              Para que $x \in V \cap H$ se deben cumplir dos cosas
+              \begin{itemize}
+                \item $x = k \alpha$ para algún $k \in \mathbb{R}$
+                \item $\langle x, \alpha \rangle = 0 $
+                \end{itemize}
+                Si juntamos ambas condiciones obtenemos 
+                \[ \langle k \alpha, \alpha \rangle = k \langle \alpha, \alpha \rangle
+                = k ||\alpha||^{\rfrac{1}{2}} = 0\]
+                La expresión anterior solo se cumple en dos casos,
+                \begin{itemize}
+                  \item Si $k=0$ en este caso $x$ que pertenece a $V \cap H$ debe ser
+                    el elemento nulo.
+                  \item Si $\alpha = (0, \dots 0)$, en este caso $V = \{0\}$ entonces 
+                    la intersección de $V$ con cualquier otro caso, solo sera el
+                    elemento nulo, en especial la intersección con $H$.
+                \end{itemize}
+            \end{proof}
+        \end{enumerate}
+      \item Sea $S=\left[\left(1,1,\frac{1}{3}\right)\right]$ y $T=[(2,1,1)]$\\
+        Notemos que tanto $S$ como $T$ son rectas en $\mathbb{R}$ entonces $S+T$ va a
+        ser un plano con direcciones $\left(1,1,\frac{1}{3}\right)$ y $(2,1,1)$
+        entonces el espacio $S+T$ es $\left[\left(1,1,\frac{1}{3}\right);(2,1,1)\right]$
+        \begin{proof}
+          Sean $\alpha, \beta \in \mathbb{R}$,\\
+          $s = \alpha \left(1,1, \frac{1}{3} \right)\in S$\\
+          $t = \beta (2, 1, 1) \in T$\\
+          Entonces veamos $s+t \in S+ T$
+          \[ s + t = \alpha \left( 1, 1, \frac{1}{3} \right) + \beta (2,1,1)\]
+          Un elemento cualquiera de $S+T$ lo escribimos como una combinación lineal
+          esos dos vectores entonces $\left(0,1,\frac{1}{3}\right)$ y $(2,1,1)$ es un 
+          sistema generador de $S+T$.\\
+        \end{proof}
+        Podemos escribir $(4,5,-3)$ de la siguiente manera
+        \[ (4,5,-3) = 6\left(1,1,\frac{1}{3}\right) -(2,1,1) \]
+        El vector $(1, 3, 0)$ no se puede escribir de esta manera porque $\nexists \
+        \alpha \beta /$
+        \[ (1,3,0) = \alpha \left(1,1,\frac{1}{3}\right) + \beta (2,1,1) \]
+    \item Sean $S, T, W$ subespacios de $\mathbb{R}$,\\
+      $S=\{x \in \mathbb{R}^3 /x=\alpha (1,1,2)\}$ y $s=(\sigma,\sigma,2\sigma)\in S$\\
+      $T=\{x \in \mathbb{R}^3 / x_1-x_3=0\}$ y $t = (\tau_1, \tau_2, \tau_1) \in T$\\
+      $W=\{x \in \mathbb{R}^3 / x_1=0\}$ y $w = (0, \omega_2, \omega_3) \in W$\\
+      $W+T = \mathbb{R}^3$ Veamos,
+      \[ w + t = (\tau_1, tau_2 + \omega_2, \tau_1 + \omega_3) = (x_1, x_2, x_3)\]
+      Como tenemos un sistema de 4 incógnitas y 3 ecuaciones, nos queda una variable
+      libre ($\tau_2$ o $\omega_2$) podemos escribir cualquier elemento 
+      de $\mathbb{R}$ (de infinitas formas diferentes) como la suma de un 
+      elemento en $W$ y otro en $T$.\\
+      $S+T = \mathbb{R}^3$ Veamos,
+      \[ s+t = (\alpha + \tau_1, \alpha + tau_2, 2 \alpha \tau_1) = (x_1, x_2, x_3)\]
+      Como tenemos un sistema de 3 incógnitas y 3 ecuaciones, nos queda una única
+      solución, entonces podemos escribir cualquier elemento de $\mathbb{R}$
+      de una única forma como la suma de un elemento en $S$ y otro en $T$.
+      En este caso vale la suma directa.
+  \item Sea $\alpha \in \mathbb{R}^n$, $V$ y $H$ subespacios de 
+    $\mathbb{R}^n$ talque
+    $V = [\alpha]$\\
+    $H=\left\{x \in \mathbb{R}^{n} / \langle \alpha, x \rangle=0\right\}$ \\
+    \begin{proof} Quiero ver que $V \oplus H = \mathbb{R}^n$.\\
+      Por la definición de \textit{suma directa} dada en clase;
+        \begin{center}
+          \framebox{\begin{minipage}{20em}\begin{center}
+            Sean $V, H$ subespacios de $\mathbb{R}^n$ y $V \cap H = \{0\}$
+            $$ V + H = \mathbb{R}^n \implies V \oplus H = \mathbb{R}^n $$
+          \end{center} \end{minipage}}
+        \end{center}
+	  Como en el ejercicio \textbf{3} probamos que $V \cap H = \{0\}$, 
+      entonces por la definición de suma directa 
+      \[ V \oplus H = \mathbb{R}^n \]
+    \end{proof}
+  \item $|a \cos \theta+b \sin \theta|^{2} \leq a^{2}+b^{2}$         
+    \begin{proof} Sean $x, y \in \mathbb{R}^2$.
+      $x = (a, b)$ y
+      $y = (\cos \theta, \sin \theta)$\\
+      Partimos de la desigualdad de Cauchy Shwartz.
+      \[\begin{aligned}
+      |\langle x, y \rangle | &\leq ||x|| \ ||y|| \\
+      |a \cos \theta + b \sin \theta| &\leq \sqrt{a^2 + b^2} 
+      \sqrt{\cos^2 \theta + \sin^2 \theta}\\
+      (a \cos \theta + b \sin \theta)^2 &\leq a^2 + b^2\\
+      \end{aligned}\]
+    \end{proof}
+  \begin{proof}
+    \[ \begin{aligned}
+      a^2 + b^2 &=  a^2 + b^2 \\
+      &= a^2 (\cos^2 \theta + \sin^2 \theta) + b^2 (\cos^2 \theta + \sin^2 \theta)\\
+      &= a^2 \cos^2 \theta + a^2 \sin^2 \theta +b^2 \sin^2 \theta + b^2 \cos^2 \theta \\
+      &= a^2 \cos^2 \theta + b^2 \sin^2 \theta  + a^2 \sin^2 \theta +b^2 \cos^2
+              \theta+ab \cos \theta \sin \theta-ab\cos\theta \sin \theta\\              
+      &= (a^2 \cos^2 \theta + b^2 \sin^2 \theta + ab \cos \theta \sin \theta )
+                + (a^2 \sin^2 \theta + b^2 \cos^2 \theta - ab \cos \theta \sin \theta)\\
+      &= (a \cos \theta + b \sin \theta)^2 + (a \sin \theta - b \cos \theta)^2\\
+      &\geq  (a \cos \theta + b \sin \theta)^2 \\
+      &\geq  |a \cos \theta + b \sin \theta|^2 \\
+    \end{aligned} \]
+  \end{proof}
+  \item Sean $v , u \in \mathbb{R}^n$ talque $\langle u, v \rangle = 0$
+    \[ || u-v ||^2 = ||u||^2 + ||v||^2 \]
+    \begin{proof}
+      \[ \begin{aligned} 
+        ||u - v ||^2 &= \langle u - v, u - v \rangle \\
+                     &= \langle u,u\rangle + \langle v,v \rangle- 2\langle u,v\rangle \\
+                     &= || u ||^2 + ||v||^2 \\
+      \end{aligned}\]
+    \end{proof}
+    Entonces si, $||v||=||u||= 1$
+    \[ ||u-v|| = \sqrt{2} \]
+  \item $\|u+v\|^{2}+\|u-v\|^{2}=2\|u\|^{2}+2\|v\|^{2}$
+    \begin{proof}
+      \[ \begin{aligned}
+          ||u+v||^2 + ||u-v||^2 &=\langle u+v,u+v \rangle + \langle u-v,u-v \rangle\\   
+           &= \langle u,u \rangle + \langle v,v \rangle + 2 \langle u,v \rangle +
+            \langle u,u \rangle + \langle v,v \rangle - 2 \langle u,v \rangle \\
+           &= || u ||^2 + ||v||^2 + || u ||^2 + ||v||^2 \\
+           &= 2 || u ||^2 + 2 ||v||^2 \\
+      \end{aligned} \]    
+    \end{proof}  
+  \item $[(2,1)]^{\perp} = [(1,-2)$]\\
+    \begin{itemize}
+    \item $(6,3) = 3 (2,1) + 0 (1,-2)$
+    \begin{center}
+      \begin{tikzpicture}[scale=0.5]
+        % Axis
+        \draw [thick](-3.25,0) -- (6.5,0);
+        \draw [thick](0,-1) -- (0,6.5);
+        \node [left] at (7.5,0) {$x$};
+        \node [below] at (0,7.5) {$y$};
+        %Subespace and orthogonal complement
+        \draw [thick, blue] (-2,-1) -- (6.5,3.25);
+        \draw [thick, blue] (0.5,-1) -- (-3.25,6.5);
+        \draw [fill] (6,3) circle [radius =0.06];
+        \node [below] at (5,4) {$(6,3$)};
+      \end{tikzpicture}
+    \end{center}
+    \item $(-2,4) = 0 (2,1) + (-2) (1,-2)$
+    \begin{center}
+      \begin{tikzpicture}[scale=0.5]
+        % Axis
+        \draw [thick](-3.25,0) -- (6.5,0);
+        \draw [thick](0,-1) -- (0,6.5);
+        \node [left] at (7.5,0) {$x$};
+        \node [below] at (0,7.5) {$y$};
+        %Subespace and orthogonal complement
+        \draw [thick, blue] (-2,-1) -- (6.5,3.25);
+        \draw [thick, blue] (0.5,-1) -- (-3.25,6.5);
+        \draw [fill] (-2,4) circle [radius =0.06];
+        \node [below] at (-1.3, 6.2) {$(-2,4)$};
+      \end{tikzpicture}
+    \end{center}
+    \item $(5,6) = \frac{16}{5} (2,1) - \frac{7}{5} (1,-2)$
+    \begin{center}
+      \begin{tikzpicture}[scale=0.5]
+        % Axis
+        \draw [thick](-3.25,0) -- (6.5,0);
+        \draw [thick](0,-1) -- (0,6.5);
+        \node [left] at (7.5,0) {$x$};
+        \node [below] at (0,7.5) {$y$};
+        %Subespace and orthogonal complement
+        \draw [thick, blue] (-2,-1) -- (6.5,3.25);
+        \draw [thick, blue] (0.5,-1) -- (-3.25,6.5);
+        \draw [fill] (5,6) circle [radius =0.06];
+        \node [left] at (7.3,6) {$(5,6)$};
+        \draw [thick, dashed, red] (6.4,3.2) -- (5,6);
+        \draw [thick, dashed, red] (-1.4,2.8) -- (5,6);
+      \end{tikzpicture}
+    \end{center}
+    \end{itemize}
+  \item \begin{enumerate}
+      \item $S = [(1,-2)]$ y $S^{\perp} = [(2,1)]$
+        \begin{center}
+          \begin{tikzpicture}[scale=0.5]
+            % Axis
+            \draw [thick](-3.25,0) -- (6.5,0);
+            \draw [thick](0,-1) -- (0,6.5);
+            \node [left] at (7.5,0) {$x$};
+            \node [below] at (0,7.5) {$y$};
+            %Subespace and orthogonal complement
+            \draw [thick, blue] (-2,-1) -- (6.5,3.25);
+            \draw [thick, blue] (0.5,-1) -- (-3.25,6.5);
+            \node [left] at (-1,4) {$S$};
+            \node [left] at (3.7,1) {$S^{\perp}$};
+          \end{tikzpicture}
+       \end{center}
+       $(1,1) = \rfrac{3}{5} (2,1) - \rfrac{1}{5} (1,-2)$\\
+       $(4,5) = \rfrac{13}{5} (2,1) - \rfrac{6}{5} (1,-2)$
+      \item $S = [(1,-1)]$ y $S^{\perp} = [(1,1)]$
+        \begin{center}
+          \begin{tikzpicture}[scale=0.5]
+            % Axis
+            \draw [thick](-3.25,0) -- (6.5,0);
+            \draw [thick](0,-1) -- (0,6.5);
+            \node [left] at (7.5,0) {$x$};
+            \node [below] at (0,7.5) {$y$};
+            %Subespace and orthogonal complement
+            \draw [thick, blue] (-1,-1) -- (6.5,6.5);
+            \draw [thick, blue] (1,-1) -- (-3.25,3.25);
+            \node [left] at (-1,2.2) {$S$};
+            \node [left] at (3.7,2) {$S^{\perp}$};
+          \end{tikzpicture}
+       \end{center}
+       $(1,1) = 0 (1,-1) + 1 (1,1)$\\
+       $(4,5) = -\rfrac{1}{2} (1,-1) + \rfrac{9}{2} (1,1)$
+     \item $S=\left\{x \in \mathbb{R}^3 / x_1+x_2-x_3=0\right\} = 
+       [(1,-1,0);(1,0,1)]$ y $S^{\perp} = [(-1,-1,1)]$\\
+       El vector para generar $S^{\perp}$, que en este caso es una recta, lo obtengo
+       haciendo el producto vectorial entre dos vectores linealmente independientes,
+       en este caso lo obtuve haciendo $(1,-1,0) \times (1,0,1) = (-1,-1,1)$.\\
+       $(1, 1, -1)= 0 (1,-1,0) + 0 (1,0,1) -1 (-1,-1,1) $\\
+       $(2, -1, 3)= \rfrac{1}{3}(1,-1,0)+\rfrac{2}{3}(1,0,1)+\rfrac{2}{3}(-1,-1,1) $\\
+     \item $S=\left\{x \in \mathbb{R}^3 / 2 x_1-x_2+3x_3=0\right\} = 
+       [(1,2,0);(3,0,-2)]$ y $S^{\perp} = [(-4,2,-6)]$\\
+       $ (1, 1, -1) = \rfrac{3}{7}(1,2,0) +\rfrac{2}{7}(3,0,-2) +\rfrac{1}{14}(-4,2,-6)$
+       $ (2, -1, 3) = 0 (1,2,0) + 0 (3,0,-2) - \rfrac{1}{2} (-4,2,-6)$
+      \end{enumerate}
+    \item $S=[(1,1,-1);(0,2,2)]$, $S^{\perp}=[(4,-2,2)]$ y 
+      $T=\{x \in \mathbb{R}^3 /-x_1+kx_2+k^2x_3=0\}$.\\
+      Primero veamos las dimensiones de los distintos espacios, $S$ y $T$ son planos y 
+      $S^{\perp}$ es una recta, entonces si puede darse el caso que $T$ contenga a 
+      $S^{\perp}$. Como tanto $S^{\perp}$ y $T$ son subespacios, alcanza con que
+      compartan un punto para que $S^{\perp} \subset T$.\\
+      Si tomamos el vector generador de $S^{\perp}$ y la ecuación del plano $T$ tenemos,
+      \[ -4 -2 k + 2 k^2 = 0\]
+      La ecuación anterior tiene dos soluciones en $\mathbb{R}$, $k=-1$ o $k=2$.
+\end{enumerate}
+\end{document}
+
